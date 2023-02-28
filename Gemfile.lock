@@ -100,6 +100,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.8.1)
     erubi (1.12.0)
     execjs (2.8.1)
     ffi (1.15.5)
@@ -246,6 +247,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.9)
+  dotenv (~> 2.1, >= 2.1.1)
   importmap-rails
   jbuilder
   pg (~> 1.4.5)
