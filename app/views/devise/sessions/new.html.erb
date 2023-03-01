@@ -11,7 +11,7 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                  
+
                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
                   <div class="d-flex align-items-center mb-3 pb-1">
@@ -52,6 +52,22 @@
                       style="color: #393f81;">Register here</a></p>
                   <a href="#!" class="small text-muted">Terms of use.</a>
                   <a href="#!" class="small text-muted">Privacy policy</a>
+                <% end %>
+                <%- if devise_mapping.omniauthable? %>
+                  <h7> Or Continue with </h7>
+                  <div class="d-flex">
+                    <%= form_for "Login", url: omniauth_authorize_path(resource_name, :google_oauth2), method: :post, data: {turbo: "false"} do |f| %>
+                      <%= f.button class: "btn btn btn-block btn-primary", style: "background-color: #dd4b39;" do%>
+                        <i class="fab fa-google me-2"></i>Google
+                      <%end%>
+                    <% end %>
+                    |
+                    <%= form_for "Login", url: user_facebook_omniauth_authorize_path, method: :post, data: {turbo: "false"} do |f| %>
+                      <%= f.button class: "btn btn btn-block btn-primary", style: "background-color: #3b5998;" do%>
+                        <i class="fab fa-facebook-f me-2"></i>Facebook
+                      <%end%>
+                    <% end %>
+                  </div>
                 <% end %>
               </div>
             </div>

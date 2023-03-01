@@ -305,6 +305,8 @@ Devise.setup do |config|
   # Note: These might become the new default in future versions of Devise.
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
+  # for sso
+  config.omniauth :google_oauth2, '640675766893-259m507p702uin689hl1idmt8uskq0ll.apps.googleusercontent.com', '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', {}
 
   # ==> Configuration for :registerable
 
