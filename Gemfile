@@ -48,6 +48,16 @@ gem 'bootsnap', require: false
 # Use Sass to process CSS
 gem 'sassc-rails'
 
+# for single sign on
+gem 'omniauth'
+
+#with google
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+
+# with facebook
+gem 'omniauth-facebook'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
