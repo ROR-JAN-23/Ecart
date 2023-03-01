@@ -1,13 +1,24 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  rolify
+  before_create :set_default_role, if: :new_record?
+  # validates :roles, presence: true
+
+  # default_scope { where(roles: ) }
+
+  # default_scope { where(User.role: 'buyer' , User.role: 'seller') }
+  # enum role: %i[buyer seller]
+  has_many :products
+
+  def set_default_role
+    add_role(:buyer) if roles.blank?
+  end
   # Include default devise modules. Others available are:
   # , :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2 facebook]
-
-enum role: {seller: 'Seller', buyer: 'Buyer', admin: 'Admin'}
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
