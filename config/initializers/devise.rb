@@ -306,7 +306,8 @@ Devise.setup do |config|
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
   # for sso
-  config.omniauth :google_oauth2, '640675766893-259m507p702uin689hl1idmt8uskq0ll.apps.googleusercontent.com', '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', {}
+  config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET'] , {}
+ 
 
   # ==> Configuration for :registerable
 
