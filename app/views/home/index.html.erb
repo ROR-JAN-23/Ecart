@@ -1,11 +1,11 @@
 
 <% if user_signed_in? %> 
- <div class="main-navbar shadow-sm sticky-top">
+ <div class="main-navbar shadow-sm sticky-top ", style = "background-color:  #2874f0;" >
         <div class="top-navbar">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                        <h5 class="brand-name">Ecart</h5>
+                        <h2 class="brand-name text-white">MyCart</h2>
                     </div>
                     <div class="col-md-5 my-auto">
                         <form role="search">
@@ -22,20 +22,20 @@
                             
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    <i class="fa fa-shopping-cart"></i> Cart (0)
+                                    <i class="fa fa-shopping-cart text-white">Cart (0)</i>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    <i class="fa fa-heart"></i> Wishlist (0)
+                                    <i class="fa fa-heart text-white">Wishlist (0)</i> 
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-user"></i><%="#{current_user.first_name}" %>
+                                    <i class="fa fa-user text-white">Hii <%= full_name(current_user) %></i>
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i>Edit Profile</a></li>
+                                <li><a class="dropdown-item" href="/users/edit"><i class="fa fa-user"></i>Edit Profile</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
@@ -52,7 +52,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="#">
-                    Funda Ecom
+    
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -60,27 +60,27 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link text-white" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">All Categories</a>
+                            <a class="nav-link text-white" href="#">All Categories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">New Arrivals</a>
+                            <a class="nav-link text-white" href="#">New Arrivals</a>
                         </li>
                        
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Electronics</a>
+                            <a class="nav-link text-white" href="#">Electronics</a>
                         </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Accessories</a>
+                            <a class="nav-link text-white" href="#">Accessories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link text-white" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Appliances</a>
+                            <a class="nav-link text-white" href="#">Appliances</a>
                         </li>
                     </ul>
                 </div>
