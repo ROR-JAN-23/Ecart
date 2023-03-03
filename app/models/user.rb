@@ -1,6 +1,20 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  rolify
+  before_create :set_default_role, if: :new_record?
+  # validates :roles, presence: true
+
+  # default_scope { where(roles: ) }
+  
+  # default_scope { where(User.role: 'buyer' , User.role: 'seller') }
+  # enum role: %i[buyer seller]
+
+
+
+  def set_default_role
+    self.add_role(:buyer) if self.roles.blank?
+  end
   # Include default devise modules. Others available are:
   # , :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
