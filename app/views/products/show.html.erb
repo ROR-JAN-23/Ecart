@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Product</h1>
+
+<%= render @product %>
+ <%=image_tag @product.image.to_s, style: 'height:20vw;width:30vw;margin-bottom:20px;'%>
+ <div id="<%= dom_id @product %>">
+  <p>
+    <%= @product.title %>
+  </p>
+
+  <p>
+    <%= @product.price %>
+  </p>
+
+  <p>
+    <%= @product.brand %>
+  </p>
+
+ <div>
+    <%= @product.image %>
+  </div>
+</div>
+<div>
+  <%= link_to "Edit this product", edit_product_path(@product) %> |
+  <%= link_to "Back to products", products_path %>
+
+  <%= button_to "Destroy this product", @product, method: :delete %>
+</div>
