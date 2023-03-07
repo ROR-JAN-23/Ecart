@@ -36,7 +36,9 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/users/edit"><i class="fa fa-user"></i>Edit Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
+                                <% if current_user.has_role?(:admin) || current_user.has_role?(:seller) %>
+                                <li><a class="dropdown-item" href="/products"><i class="fa fa-list"></i>Create Products </a></li>
+                               <% end %>
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> My Wishlist</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
                                

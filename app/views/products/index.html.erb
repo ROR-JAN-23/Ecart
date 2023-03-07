@@ -1,36 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
-<h1 class = "mx-auto " style="width: 200px;">Products</h1>
-<div class = "mx-auto" style="width: 200px;" >
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-    <%=image_tag product.image.to_s, style: 'height:20vw;width:30vw;margin-bottom:20px;'%>
-
-<div id="<%= dom_id product %>">
-  <p>
-    <%= product.title %>
-  </p>
-
-  <p>
-    <%= product.price %>
-  </p>
-
-  <p>
-    <%= product.brand %>
-  </p>
-
- <div>
-    <%= product.image %>
-  </div>
+<h1 class = "text-center" >Products</h1>
+<div class="row row-cols-5 justify-content-center ">
+<% @products.each do |product| %>
+ <%= render 'product', {product: product} %>
+<% end %>
 </div>
 
-  <% end %>
-</div>
-</div>
+<h2 class = "text-center mb-5 mt-5"><%= link_to " Add New product", new_product_path %></h2>
 
-<%= link_to "New product", new_product_path %>
 
