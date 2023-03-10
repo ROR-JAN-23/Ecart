@@ -1,4 +1,5 @@
-<h2>Cart show</h2>
+
+<h2 class = " text-center mt-3 mb-4">Shopping Cart</h2>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container padding-bottom-3x mb-1">
     <!-- Alert-->
@@ -15,16 +16,16 @@
                     <th class="text-center">Discount</th>
                     <th class="text-center">Add one</th>
                     <th class="text-center">reduce one</th>
-                    <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a></th>
+                    <th class="text-center"><%= button_to "Clear cart", cart_path,class: "btn btn-danger", method: :delete %></a></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
                         <div class="product-item">
-                            <a class="product-thumb" href="#"><img src="https://www.bootdey.com/image/220x180/FF0000/000000" alt="Product"></a>
+                            <a class="product-thumb" href="#"><img src="" alt="Product"></a>
                             <div class="product-info">
-                                <h4 class="product-title"><a href="#"><%= line_item.product.title %></a></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
+                                <h4 class="product-title text-center"><%= line_item.product.title %></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
                             </div>
                         </div>
                     </td>
@@ -37,9 +38,9 @@
                     </td>
                     <td class="text-center text-lg text-medium"><%= number_to_currency(line_item.total_price) %></td>
                     <td class="text-center text-lg text-medium">$18.00</td>
-                    <td class="text-center text-lg text-medium"><%= link_to "Add one", line_item_add_path(:id => line_item), method: :post %></td>
-                    <td class="text-center text-lg text-medium"><%= link_to "Reduce one", line_item_reduce_path(:id => line_item), method: :post %></td>
-                    <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
+                    <td class="text-center text-lg text-medium"><%= link_to "Add one", line_item_add_path(:id => line_item), method: :post ,class: "btn btn-primary"%></td>
+                    <td class="text-center text-lg text-medium"><%= link_to "Reduce one", line_item_reduce_path(:id => line_item), method: :post ,class: "btn btn-warning"%></td>
+                    <td class="text-center"><%= button_to "Destroy", line_item,class: "btn btn-danger", method: :delete %></td>
                 </tr>
                 
             </tbody>
@@ -50,7 +51,6 @@
         <div class="column text-lg mt-3 mb-3">Subtotal: <span class="text-medium"><%= number_to_currency(@cart.sub_total) %></span></div>
     </div>
     <div class="shopping-cart-footer">
-        <div class="column"><a href ="#"><%= link_to "Empty cart", cart_path(@current_cart),method: :delete, data: {confirm: "Are you sure?"}, class:"d-flex justify-content-center btn btn-primary" %></a></div><br>
-        <div><a href="#"><%= link_to "Proceed to checkout", new_order_path ,class:"d-flex justify-content-center btn btn-success"%></a></div>
+        <div><%= link_to "Proceed to checkout", new_order_path ,class:"mb-4 d-flex justify-content-center btn btn-success"%></div>
     </div>
 </div>

@@ -11,17 +11,23 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
   def create
-    @order = Order.new(order_params)
-    @current_cart.line_items.each do |item|
-      @order.line_items << item
-      item.cart_id = nil
-    end
-    @order.save
-    Cart.destroy(session[:cart_id])
-    session[:cart_id] = nil
-    redirect_to root_path
+    if @order = Order.new(order_params)
+      @order.save
+       @current_cart.line_items.each do |line_item|
+         @order.order_items.create(         
+             product_id: line_item.product_id,
+             quantity:   line_item.quantity,
+             cart_id:   line_item.cart_id
+          )
+          end
+        if @order.save
+        redirect_to orders_path, notice: 'Order was successfully created.'
+    else
+        redirect_to root_path, notice: 'Something went wrong saving the order.'
+    end 
   end
-  
+ end
+
   private
     def order_params
       params.require(:order).permit(:name, :email, :address, :pay_method)

@@ -1,15 +1,10 @@
 class LineItem < ApplicationRecord
 belongs_to :product
 belongs_to :cart
-# belongs_to :order 
+belongs_to :order ,optional: true
 
  def total_price
-  if self.quantity == nil
-    self.quantity = 1
-    self.quantity * self.product.price
-  else
-    self.quantity * self.product.price
-  end
+   self.quantity * self.product.price
 end
 
 end

@@ -5,12 +5,9 @@ class User < ApplicationRecord
   before_create :set_default_role, if: :new_record?
   # validates :roles, presence: true
 
-  # default_scope { where(roles: ) }
 
-  # default_scope { where(User.role: 'buyer' , User.role: 'seller') }
-  # enum role: %i[buyer seller]
   has_many :products
-
+ 
   def set_default_role
     add_role(:buyer) if roles.blank?
   end
