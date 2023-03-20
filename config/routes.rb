@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  root 'home#index'
+  root 'products#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get 'welcome/index'
   # Defines the root path route ("/")
