@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
   before_action :authenticate_user!
   # before_action :authenticate_product!
-
   # def authenticate_product!
   #   redirect_to root_path, alert: 'Not Authorized For This Action' unless current_user.has_role?(:seller)
   # end
@@ -17,7 +16,11 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
+    #if (current_user.has_role?(:seller) || current_user.has_role?(:admin))
     @product = Product.new
+    # else
+    #   redirect_to root_path, alert: 'Not Authorized For This Action'
+    # end
   end
 
   # GET /products/1/edit
@@ -29,8 +32,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-
-        format.html { redirect_to product_url(@product), notice: 'Product was successfully created.' }
+        format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +45,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to product_url(@product), notice: 'Product was successfully updated.' }
+        format.html { redirect_to product_url(@product), notice: "Product was successfully updated." }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +59,7 @@ class ProductsController < ApplicationController
     @product.destroy
 
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
       format.json { head :no_content }
     end
   end

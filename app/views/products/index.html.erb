@@ -104,7 +104,8 @@
  <%= render 'product', {product: product} %>
 <% end %>
 </div>
- <% if current_user.has_role?(:admin) || current_user.has_role?(:seller) %>
+ <%# <% if current_user.has_role?(:admin) || current_user.has_role?(:seller) %> 
+<% if can? :create, Product %>
 <h2 class = "text-center mb-5 mt-5"><%= link_to " Add New product", new_product_path %></h2>
 <% end %>
 
